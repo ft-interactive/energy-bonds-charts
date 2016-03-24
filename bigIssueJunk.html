@@ -76,7 +76,7 @@
   		<script charset="utf-8">
 			var	width = 600,
 				height = 600,
-                M = { T:90, L:0, B:20, R:0 },
+                M = { T:90, L:0, B:50, R:0 },
                 pM = { T:25, L:70, B:15, R:20, G:0 },
 				rows = 1,
 				columns = 1,
@@ -216,13 +216,21 @@
                 d3.select('.chartSubTitle').call(wrap,width,1.15);
             },100);
 
+            chartHolder.append('text').attr({
+                'class':'footnote',
+                'x':1,
+                'y':height-35
+            })
+            .html('*MarkWest was in December 2015 bought by MPLX, a unit of Marathon Petroleum. Marathon Petroleum has an investment grade credit rating');
+            d3.select('.footnote').call(wrap,width-5,1.1);
+
             var footnote = chartHolder.append('text').attr({
                 'class':'footnote',
                 'x':1,
                 'y':height-3
             })
             .html('Source: Dealogic');
-            d3.select('.footnote').call(wrap,width-5,1.1);
+            // d3.select('.footnote').call(wrap,width-5,1.1);
 
             queue()
               .defer(d3.csv, 'newIssue.csv')
@@ -442,6 +450,7 @@
 					.replace(/China Petrochemical/g,"Sinopec")
 					.replace(/HALRES/g,"Halcon Resources")
 					.replace(/Pacific Exploration & Production/g,"Pacific Rubiales")
+					.replace(/Marathon Petroleum/g,"MarketWest*")
 				)});
 				// .html(function(d,i){return toTitleCase(d.description)});
 
@@ -510,7 +519,7 @@
 			  {
 			    "xVal": 5,
 			    "yVal": 12,
-			    "path": "M336,-165C268,-210,201,-225,104,-230",
+			    "path": "M336,-143C275,-192,207,-213,104,-215",
 			    "text": "The second-largest gas producer in the US, Chesapeake continues to struggle with the debt burden it built up during its expansion",
 			    "textOffset": [
 			      340,
@@ -520,7 +529,7 @@
 			  {
 			    "xVal": 5,
 			    "yVal": 15,
-			    "path": "M194,-177C158,-223,106,-245,42,-250",
+			    "path": "M194,-177C158,-213,106,-236,43,-236",
 			    "text": "One of the 20 largest independent oil and gas companies in the US, Linn warned recently that it could be forced to enter bankruptcy",
 			    "textOffset": [
 			      196,
@@ -540,7 +549,7 @@
 			  {
 			    "xVal": 25,
 			    "yVal": 22,
-			    "path": "M-231,-78C-271,-73,-321,-88,-353,-114",
+			    "path": "M-228,-77C-271,-73,-321,-88,-352,-109",
 			    "text": "Has been rapidly cutting its debt through distressed bond exchanges as it seeks to avoid bankruptcy",
 			    "textOffset": [
 			      -225,
